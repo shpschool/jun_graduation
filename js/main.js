@@ -46,7 +46,7 @@ btn.addEventListener('click', async () => {
 
 // получение кодов для блоков
 (async () => {
-    let res = await fetch('/db/db_module.json');
+    let res = await fetch('/jun_graduation/db/db_module.json');
     res = await res.json();
     res = res[classCode];
     for (const key in res) {
