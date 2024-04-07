@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    font-family: 'Nunito';
+}
+
+:root {
+    /* цвета 3 класса */
+    --main-yellow: #F5DD61;
+    --main-orange: #FAA300;
+    --main-light-orange: #FAB300;
+    --main-light-green: #4CCD99;
+    /* цвета 4 класса */
+    --main-bright-blue: #39A7FF;
+    --main-dark-blue: #87C4FF;
+    --main-light-blue: #d0e4FF;
+    /* общие цвета */
+    --main-dark-green: #007F73;
+    --main-pink: #F4538A;
+    --border-radius: 8px;
+}
+
+body, #game, .finish-wrap {
+    padding: 3% 5%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 100vw;
+    box-sizing: border-box;
+    background-color: var(--back-color);
+}
+
+#game {
+    transition-duration: 0.7s;
+}
+#game.hidden, .finish-wrap.hidden {
+    opacity: 0;
+}
+
+h1 {
+    width: 80%;
+    text-align: center;
+    color: var(--main-light-color);
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    width: 100%;
+    margin: 20px 0px;
+}
+
+#keycode {
+    margin-right: 20px;
+    width: 400px;
+    border-radius: var(--border-radius);
+    padding: 7px 10px;
+    height: 50px;
+    border: 0px;
+    font-size: large;
+    box-sizing: border-box;
+}
+#keycode:focus {
+    outline: var(--main-dark-color) 2px solid;
+    outline-offset: -4px;
+}
+
+button {
+    cursor: pointer;
+    color: white;
+    background-color: var(--main-bright-color);
+    width: fit-content;
+    min-width: 35px;
+    padding: 7px 10px;
+    border-radius: var(--border-radius);
+    border: 0px;
+    height: 50px;
+    font-size: large;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+button:hover {
+    background-color: var(--main-bright-color-light);
+}
+button:active {
+    background-color: var(--main-bright-color);
+}
+
+#prompt-container {
+    width: fit-content;
+    max-width: 40%;
+    padding: var(--border-radius);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#prompt-text {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.finish-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: 10;
+}
+.finish-wrap.open #finish {
+    animation-name: to-top;
+    animation-duration: 1s;
+}
+
+@keyframes to-top {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
+.hidden {
+    display: none;
+}
+
+.error {
+    background-color: var(--main-pink);
+}
+
+.success {
+    background-color: var(--main-dark-green);
+}
+
+@media (max-width: 900px) {
+    #keycode {font-size: medium;}
+    button {font-size: medium;}
+}

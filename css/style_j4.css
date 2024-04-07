@@ -1,94 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-
-* {
-    font-family: 'Nunito';
-}
-
 :root {
-    --main-blue: #59D5E0;
-    --main-yellow: #F5DD61;
-    --main-orange: #FAA300;
-    --main-light-orange: #FAB300;
-    --main-dark-green: #007F73;
-    --main-light-green: #4CCD99;
-    --main-pink: #F4538A;
-    --border-radius: 8px;
+    --back-color: var(--main-light-blue);
+    --main-light-color: var(--main-dark-blue);
+    --main-bright-color: var(--main-bright-blue);
+    --main-bright-color-light: var(--main-dark-blue);
+    --main-dark-color: var(--main-bright-blue);
 }
 
 body, #game {
-    padding: 3% 5%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    width: 100vw;
-    box-sizing: border-box;
-    background-color: var(--main-light-green);
-}
-
-#game.hidden {
-    display: none;
-}
-
-h1 {
-    width: 80%;
-    text-align: center;
-    color: var(--main-yellow);
+    padding: 2% 5% 3%;
 }
 
 .container {
-    display: flex;
-    justify-content: space-around;
-    align-items: end;
-    width: 100%;
-    margin: 20px 0px;
-}
-
-#keycode {
-    margin-right: 20px;
-    width: 400px;
-    border-radius: var(--border-radius);
-    padding: 7px 10px;
-    height: 50px;
-    border: 0px;
-    font-size: large;
-    box-sizing: border-box;
-}
-#keycode:focus {
-    outline: var(--main-dark-green) 2px solid;
-    outline-offset: -4px;
-}
-
-button {
-    cursor: pointer;
-    color: white;
-    background-color: var(--main-orange);
-    width: fit-content;
-    min-width: 35px;
-    padding: 7px 10px;
-    border-radius: var(--border-radius);
-    border: 0px;
-    height: 50px;
-    font-size: large;
-    font-weight: bold;
-    box-sizing: border-box;
-}
-button:hover {
-    background-color: var(--main-light-orange);
-}
-button:active {
-    background-color: var(--main-orange);
+    width: 25%;
+    margin: 0px 0px 20px;
 }
 
 .card-block {
     position: relative;
     min-width: 200px;
-    width: 20%;
-    max-width: 20vw;
+    width: 45%;
+    max-width: 10vw;
     min-height: 200px;
-    height: 20vw;
-    margin: 0px 5px;
+    height: 22vh;
+    margin: 5px;
 }
 
 .card-block-img {
@@ -98,24 +32,6 @@ button:active {
     width: 100%;
     border-radius: var(--border-radius);
     transition-duration: 0.7s;
-}
-
-#prompt-container {
-    width: fit-content;
-    max-width: 40%;
-    padding: var(--border-radius);
-    border-radius: var(--border-radius);
-    box-sizing: border-box;
-    color: white;
-    font-weight: bold;
-    margin-top: 30px;
-}
-
-#prompt-text {
-    width: 100%;
-    text-align: center;
-    padding: 0;
-    margin: 0;
 }
 
 #finish {
@@ -163,11 +79,6 @@ button:active {
     color: var(--main-yellow);
 }
 
-.lock.open {
-    transform: translateY(-200px);
-    opacity: 0;
-}
-
 .front {
     opacity: 1;
 }
@@ -177,24 +88,18 @@ button:active {
     opacity: 0;
 }
 
-.hidden {
-    display: none;
-}
-
-.error {
-    background-color: var(--main-pink);
-}
-
-.success {
-    background-color: var(--main-dark-green);
+.lock.open {
+    transform: translateY(-200px);
+    opacity: 0;
 }
 
 @media (max-width: 900px) {
-    #keycode {font-size: medium;}
-    button {font-size: medium;}
     .finish-text {
         width: 70%;
         left: 15%;
         font-size: medium;
+    }
+    .card-block {
+        height: 50vh;
     }
 }

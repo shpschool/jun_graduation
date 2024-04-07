@@ -82,10 +82,14 @@ const openBlock = (keyId) => {
     }
     const lock = block.querySelector('.front');
     lock.classList.add('open');
-    lock.classList.remove('front');
+    if (classCode === "j4") {
+        lock.classList.remove('front');
+        blockCard.classList.remove('back');
+        blockCard.classList.add('front');
+    } else {
+        blockCard.classList.add('open');
+    }
     setTimeout(() => lock.classList.add('hidden'), 700);
-    blockCard.classList.remove('back');
-    blockCard.classList.add('front');
 };
 
 /** открытие блока подсказки по ходу игры */
@@ -107,7 +111,8 @@ const setPrompt = (prText, success) => {
 /** Завершение "игры", показ ссылки на сертификат */
 const finishGame = () => {
     document.querySelector('#game').classList.add('hidden');
-    document.querySelector('#finish').classList.remove('hidden');
+    document.querySelector('.finish-wrap').classList.remove('hidden');
+    document.querySelector('.finish-wrap').classList.add('open');
 };
 
 
