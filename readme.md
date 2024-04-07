@@ -20,7 +20,7 @@
 
 **_Ссылки на страницы по группам_**
 
-- J3: https://shpschool.github.io/jun_graduation/j3/
-- J4: https://shpschool.github.io/jun_graduation/j4/
+- J3: [https://shpschool.github.io/jun_graduation/j3/](https://shpschool.github.io/jun_graduation/j3/)
+- J4: [https://shpschool.github.io/jun_graduation/j4/](https://shpschool.github.io/jun_graduation/j4/)
 
 Эти ссылки можно вставлять в уроки соответствующих групп
