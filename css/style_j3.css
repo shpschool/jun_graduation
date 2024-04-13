@@ -10,7 +10,7 @@
     position: relative;
     min-width: 200px;
     width: 20%;
-    max-width: 20vw;
+    /* max-width: 20vw; */
     min-height: 200px;
     height: 20vw;
     margin: 0px 5px;
@@ -70,6 +70,9 @@
 .finish-text a:visited {
     color: var(--main-dark-color);
 }
+.finish-text p {
+    width: 90%;
+}
 
 .front {
     transform: rotateY(0.5turn);
@@ -88,10 +91,11 @@
     transform: rotateY(0turn);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .finish-text {
         width: 60%;
         left: 20%;
-        font-size: medium;
     }
+    .finish-text h3 { font-size: medium; }
+    .finish-text p { font-size: x-small; }
 }

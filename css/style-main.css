@@ -53,8 +53,15 @@ h1 {
     margin: 20px 0px;
 }
 
+.bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 #keycode {
-    margin-right: 20px;
+    margin: 10px;
     width: 400px;
     border-radius: var(--border-radius);
     padding: 7px 10px;
@@ -81,6 +88,7 @@ button {
     font-size: large;
     font-weight: bold;
     box-sizing: border-box;
+    margin: 10px;
 }
 button:hover {
     background-color: var(--main-bright-color-light);
@@ -142,7 +150,19 @@ button:active {
     background-color: var(--main-dark-green);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+    h1 {
+        width: 90%;
+        font-size: x-large;
+    }
     #keycode {font-size: medium;}
     button {font-size: medium;}
+    #keycode, button {
+        height: 40px;
+    }
+
+    .card-block {
+        min-height: 150px !important;
+        min-width: 150px !important;
+    }
 }

@@ -19,7 +19,7 @@ body, #game {
     position: relative;
     min-width: 200px;
     width: 45%;
-    max-width: 10vw;
+    /* max-width: 10vw; */
     min-height: 200px;
     height: 22vh;
     margin: 5px;
@@ -93,13 +93,13 @@ body, #game {
     opacity: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .finish-text {
         width: 70%;
         left: 15%;
         font-size: medium;
     }
-    .card-block {
-        height: 50vh;
-    }
+    /* .card-block {
+        height: auto;
+    } */
 }

@@ -18,6 +18,8 @@
 - ввести в консоль `localStorage.clear()` и нажать Enter;
 - перезагрузить (обновить) страницу и можно тестировать страницу еще раз.
 
+Также можно запускать сайт из окна браузера в режиме инкогнито.
+
 **_Ссылки на страницы по группам_**
 
 - J3: [https://shpschool.github.io/jun_graduation/j3/](https://shpschool.github.io/jun_graduation/j3/)
