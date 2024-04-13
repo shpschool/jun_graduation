@@ -19,19 +19,10 @@ body, #game {
     position: relative;
     min-width: 200px;
     width: 45%;
-    /* max-width: 10vw; */
     min-height: 200px;
-    height: 22vh;
-    margin: 5px;
-}
-
-.card-block-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-radius: var(--border-radius);
-    transition-duration: 0.7s;
+    height: 200px;
+    margin: 0px 10px;
+    box-sizing: border-box;
 }
 
 #finish {
@@ -99,7 +90,15 @@ body, #game {
         left: 15%;
         font-size: medium;
     }
-    /* .card-block {
-        height: auto;
-    } */
+    .card-block { height: 150px; }
+    .main-cont {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .container {
+        width: 50%;
+        min-width: 340px;
+        box-sizing: border-box;
+    }
 }

@@ -10,20 +10,10 @@
     position: relative;
     min-width: 200px;
     width: 20%;
-    /* max-width: 20vw; */
     min-height: 200px;
     height: 20vw;
     margin: 0px 5px;
     transform-style: preserve-3d;
-}
-
-.card-block-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-radius: var(--border-radius);
-    transition-duration: 0.7s;
 }
 
 #finish {
@@ -98,4 +88,10 @@
     }
     .finish-text h3 { font-size: medium; }
     .finish-text p { font-size: x-small; }
+    .container {
+        flex-wrap: wrap;
+    }
+    .card-block {
+        margin: 5px;
+    }
 }

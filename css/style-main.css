@@ -20,19 +20,20 @@
     --border-radius: 8px;
 }
 
-body, #game, .finish-wrap {
+body, #game, .finish-wrap, .main-cont {
     padding: 3% 5%;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
     background-color: var(--back-color);
 }
 
 #game {
+    padding: 0px !important;
     transition-duration: 0.7s;
 }
 #game.hidden, .finish-wrap.hidden {
@@ -51,6 +52,15 @@ h1 {
     align-items: end;
     width: 100%;
     margin: 20px 0px;
+}
+
+.card-block-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: var(--border-radius);
+    transition-duration: 0.7s;
 }
 
 .bottom-container {
@@ -155,7 +165,10 @@ button:active {
         width: 90%;
         font-size: x-large;
     }
-    #keycode {font-size: medium;}
+    #keycode {
+        font-size: medium;
+        width: 350px;
+    }
     button {font-size: medium;}
     #keycode, button {
         height: 40px;
