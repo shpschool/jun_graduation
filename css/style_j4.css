@@ -88,8 +88,9 @@ body, #game {
     .finish-text {
         width: 70%;
         left: 15%;
-        font-size: medium;
     }
+    .finish-text h3 { font-size: x-large; }
+    .finish-text p { font-size: medium; }
     .card-block { height: 150px; }
     .main-cont {
         flex-direction: row;
@@ -101,4 +102,9 @@ body, #game {
         min-width: 340px;
         box-sizing: border-box;
     }
+}
+
+@media (max-width: 800px) {
+    .finish-text h3 { font-size: medium; }
+    .finish-text p { font-size: x-small; }
 }
