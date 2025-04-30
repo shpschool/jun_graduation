@@ -24,6 +24,6 @@
 
 - J3: [https://shpschool.github.io/jun_graduation/j3/](https://shpschool.github.io/jun_graduation/j3/)
 - J4: [https://shpschool.github.io/jun_graduation/j4/](https://shpschool.github.io/jun_graduation/j4/)
-- P3: [https://shpschool.github.io/jun_graduation/j4/](https://shpschool.github.io/jun_graduation/p3/)
+- P3: [https://shpschool.github.io/jun_graduation/p3/](https://shpschool.github.io/jun_graduation/p3/)
 
 Эти ссылки можно вставлять в уроки соответствующих групп
