@@ -36,7 +36,8 @@ const getProgress = () => {
         openedBlocks = localStorage.getItem("openedBlocks");
         if (openedBlocks) {
             openedBlocks = openedBlocks.split(",");
-            if (openedBlocks.length === 4) {
+            const requiredBlocks = classCode === 'p3' ? 2 : 4;
+            if (openedBlocks.length === requiredBlocks) {
                 finishGame();
             } else {
                 for (let block of openedBlocks) {
@@ -66,20 +67,29 @@ const clearProgress = () => {
 const openBlock = (keyId) => {
     let block;
     let blockCard;
-    if (keyId === "math") {
-        block = document.getElementById('mark');
-        blockCard = block.querySelector('#math');
-        const blockMark = block.querySelector('#mark-img');
-        blockMark.classList.add('hidden');
-    } else if (keyId === "mark") {
-        block = document.getElementById('mark');
-        blockCard = block.querySelector('#mark-img');
-        const blockMath = block.querySelector('#math');
-        blockMath.classList.add('hidden');
-    } else {
+    
+    // Для группы P3 используем упрощенную логику
+    if (classCode === 'p3') {
         block = document.getElementById(keyId);
         blockCard = block.querySelector('.back');
+    } else {
+        // Старая логика для других групп
+        if (keyId === "math") {
+            block = document.getElementById('mark');
+            blockCard = block.querySelector('#math');
+            const blockMark = block.querySelector('#mark-img');
+            blockMark.classList.add('hidden');
+        } else if (keyId === "mark") {
+            block = document.getElementById('mark');
+            blockCard = block.querySelector('#mark-img');
+            const blockMath = block.querySelector('#math');
+            blockMath.classList.add('hidden');
+        } else {
+            block = document.getElementById(keyId);
+            blockCard = block.querySelector('.back');
+        }
     }
+    
     const lock = block.querySelector('.front');
     lock.classList.add('open');
     if (classCode === "j4") {
@@ -131,12 +141,16 @@ btn.addEventListener('click', async () => {
             break;
         }
     }
-    // если уже ввели код для блока Марка, то больше нельзя ввести код для блока Математика
-    if (keyId === "mark") useMark = true;
-    if (useMark && keyId === "math") answer = false;
-    // если уже ввели код для блока Математика, то больше нельзя ввести код для блока Марка
-    if (keyId === "math") useMath = true;
-    if (useMath && keyId === "mark") answer = false;
+    
+    // Проверки useMark и useMath только для групп j3 и j4
+    if (classCode !== 'p3') {
+        // если уже ввели код для блока Марка, то больше нельзя ввести код для блока Математика
+        if (keyId === "mark") useMark = true;
+        if (useMark && keyId === "math") answer = false;
+        // если уже ввели код для блока Математика, то больше нельзя ввести код для блока Марка
+        if (keyId === "math") useMath = true;
+        if (useMath && keyId === "mark") answer = false;
+    }
 
     if (openedBlocks.includes(keyId)) {
         setPrompt('Ключ уже был использован!', false);
@@ -152,7 +166,10 @@ btn.addEventListener('click', async () => {
     } else {
         setPrompt('Неверный ключ! Проверь себя и попробуй ввести ключ снова', false);
     }
-    if (openedBlocks.length === 4) {
+    
+    // Проверяем количество блоков в зависимости от группы
+    const requiredBlocks = classCode === 'p3' ? 2 : 4;
+    if (openedBlocks.length === requiredBlocks) {
         setTimeout(finishGame, 2000);
     }
 });
@@ -164,7 +181,7 @@ btn.addEventListener('click', async () => {
     } else {
         localStorage.setItem("startGame", new Date());
     }
-    let res = await fetch('/jun_graduation/db/db_module.json');
+    let res = await fetch('../db/db_module.json');
     res = await res.json();
     res = res[classCode];
     for (const key in res) {
