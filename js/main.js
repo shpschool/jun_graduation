@@ -16,24 +16,30 @@ let useMark = false;
 let useMath = false;
 let openedBlocks = [];
 
+// Уникальные ключи для localStorage
+const STORAGE_KEYS = {
+    openedBlocks: `openedBlocks_${classCode}`,
+    startGame: `startGame_${classCode}`
+};
+
 
 /* Функции */
 /* ****************************************************** */
 
 /** сохранение прогресса ученика */
 const saveProgress = () => {
-    localStorage.setItem("openedBlocks", openedBlocks);
+    localStorage.setItem(STORAGE_KEYS.openedBlocks, openedBlocks);
 };
 
 /** получение прогресса ученика */
 const getProgress = () => {
-    const startDate = new Date(localStorage.getItem("startGame"));
+    const startDate = new Date(localStorage.getItem(STORAGE_KEYS.startGame));
     const nowDate = new Date();
     // если "игра" была начата больше дня назад, то прогресс стирается
     if (nowDate - startDate > 1000 * 60 * 60 * 24) {
         clearProgress();
     } else {
-        openedBlocks = localStorage.getItem("openedBlocks");
+        openedBlocks = localStorage.getItem(STORAGE_KEYS.openedBlocks);
         if (openedBlocks) {
             openedBlocks = openedBlocks.split(",");
             const requiredBlocks = classCode === 'p3' ? 2 : 4;
@@ -60,7 +66,8 @@ const getProgress = () => {
 /** очистка прогресса */
 const clearProgress = () => {
     console.log('clear progress');
-    localStorage.clear();
+    localStorage.removeItem(STORAGE_KEYS.openedBlocks);
+    localStorage.removeItem(STORAGE_KEYS.startGame);
 };
 
 /** открытие блока (после ввода верного ключа или во время получения прогресса) */
@@ -176,10 +183,10 @@ btn.addEventListener('click', async () => {
 
 // получение прогресса, если он есть, и кодов для блоков для старта "игры"
 (async () => {
-    if (localStorage.getItem("startGame")) {
+    if (localStorage.getItem(STORAGE_KEYS.startGame)) {
         getProgress();
     } else {
-        localStorage.setItem("startGame", new Date());
+        localStorage.setItem(STORAGE_KEYS.startGame, new Date());
     }
     let res = await fetch('../db/db_module.json');
     res = await res.json();
