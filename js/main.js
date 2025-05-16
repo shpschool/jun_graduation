@@ -42,7 +42,7 @@ const getProgress = () => {
         openedBlocks = localStorage.getItem(STORAGE_KEYS.openedBlocks);
         if (openedBlocks) {
             openedBlocks = openedBlocks.split(",");
-            const requiredBlocks = classCode === 'p3' ? 2 : 4;
+            const requiredBlocks = classCode === 'p3' ? 3 : 4;
             if (openedBlocks.length === requiredBlocks) {
                 finishGame();
             } else {
@@ -175,7 +175,7 @@ btn.addEventListener('click', async () => {
     }
     
     // Проверяем количество блоков в зависимости от группы
-    const requiredBlocks = classCode === 'p3' ? 2 : 4;
+    const requiredBlocks = classCode === 'p3' ? 3 : 4;
     if (openedBlocks.length === requiredBlocks) {
         setTimeout(finishGame, 2000);
     }
